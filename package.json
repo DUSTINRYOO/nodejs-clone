@@ -1,0 +1,16 @@
+{
+  "name": "nodejs-clone",
+  "version": "1.0.0",
+  "description": "The best way to watch videos.",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DUSTINRYOO/nodejs-clone.git"
+  },
+  "author": "Dustin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/DUSTINRYOO/nodejs-clone/issues"
+  },
+  "homepage": "https://github.com/DUSTINRYOO/nodejs-clone#readme"
+}
