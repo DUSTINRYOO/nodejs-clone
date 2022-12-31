@@ -5,7 +5,13 @@ html(lang="ko")
         link(rel="stylesheet" href="https://unpkg.com/mvp.css@1.12/mvp.css")
     body 
         header 
-            h1=pageTitle            
-        main 
+            h1=pageTitle                                  
+        main
+            div 
+                li 
+                    a(href="/") Home
+                li 
+                    a(href="/search") Search
+
             block content
             include partials/footer.pug
