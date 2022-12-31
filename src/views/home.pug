@@ -2,6 +2,10 @@ extends base.pug
 include mixins/video
 
 block content 
+    nav 
+        ul 
+            li
+                a(href="/video/upload") Upload Video
     h2 Welcome here you will see trending videos
     
     each video in videos 
