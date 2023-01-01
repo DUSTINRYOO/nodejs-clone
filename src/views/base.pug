@@ -14,9 +14,9 @@ html(lang="ko")
                         a(href="/search") Search
                 if loggedIn 
                     li 
-                        a(href="/logout") Logout
+                        a(href="/user/logout") Logout
                     li 
-                        a(href="/myprofile") #{loggedInUser.name}'s Profile
+                        a(href="/myprofile") #{loggedInUser.user.name}'s Profile
                 else
                     li 
                         a(href="/join") Join
