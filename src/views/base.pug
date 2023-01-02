@@ -7,25 +7,26 @@ html(lang="ko")
         header 
             h1=pageTitle                                  
         main
-            div 
-                li 
-                    a(href="/") Home    
+            nav
+                ul
                     li 
-                        a(href="/search") Search
-                if loggedIn 
-                    li 
-                        a(href="/user/edit") Edit Profile
-                    li 
-                        a(href="/user/logout") Logout
-                    li 
-                        a(href="/myprofile") #{loggedInUser.user.name}'s Profile
-                    li
-                        a(href="/video/upload") Upload Video      
-                else
-                    li 
-                        a(href="/join") Join
-                    li 
-                        a(href="/login") Login
+                        a(href="/") Home    
+                        li 
+                            a(href="/search") Search
+                    if loggedIn 
+                        li 
+                            a(href="/user/edit") Edit Profile
+                        li 
+                            a(href="/user/logout") Logout
+                        li 
+                            a(href=`/user/${loggedInUser.user._id}`) My Profile            
+                        li
+                            a(href="/video/upload") Upload Video      
+                    else
+                        li 
+                            a(href="/join") Join
+                        li 
+                            a(href="/login") Login
 
             block content
             include partials/footer.pug

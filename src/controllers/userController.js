@@ -1,4 +1,5 @@
 import User from "../models/user";
+import Video from "../models/video";
 import fetch from "cross-fetch";
 import bcrypt from "bcrypt";
 
@@ -151,11 +152,12 @@ export const getEdit = (req, res) => {
 export const postEdit = async (req, res) => {
   const {
     session: {
-      user: { _id },
+      user: { _id, avatarUrl },
     },
     body: { name, username, email, location },
+    file,
   } = req;
-  if (req.body.username !== req.session.username) {
+  if (req.body.username !== req.session.user.username) {
     const usernameExists = await User.exists({ username });
     if (usernameExists) {
       return res.status(400).render("edit-profile", {
@@ -176,6 +178,7 @@ export const postEdit = async (req, res) => {
   const user = await User.findByIdAndUpdate(
     _id,
     {
+      avatarUrl: file ? file.path : avatarUrl,
       name,
       email,
       username,
@@ -225,4 +228,14 @@ export const logout = (req, res) => {
   return res.redirect("/");
 };
 
-export const see = (req, res) => res.send("See profile");
+export const see = async (req, res) => {
+  const { id } = req.params;
+  const user = await User.findById(id).populate("videos");
+  if (!user) {
+    return res.status(404).render("404", { pageTitle: "Can't find user" });
+  }
+  return res.render("profile", {
+    pageTitle: `${user.name}'s profile`,
+    user,
+  });
+};
