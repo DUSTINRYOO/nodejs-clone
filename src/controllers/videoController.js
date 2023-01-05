@@ -4,7 +4,6 @@ import User from "../models/user";
 
 export const home = async (req, res) => {
   const videos = await Video.find({}).sort({ createdAt: "desc" });
-
   return res.render("home", { pageTitle: "Home", videos });
 };
 
