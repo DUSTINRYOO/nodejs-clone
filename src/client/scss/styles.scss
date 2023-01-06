@@ -13,6 +13,8 @@
 // Screens
 @import "./screens/home";
 @import "./screens/search";
+@import "./screens/watch";
+@import "./screens/profile";
 
 //Defaults
 
@@ -25,11 +27,11 @@ body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   background-color: $bg;
-  color: $red;
+  color: $yellow;
 }
 
 main {
-  max-width: 1200px;
+  max-width: 1140px;
   width: 100%;
   margin: 0 auto;
 }

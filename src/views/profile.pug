@@ -2,6 +2,9 @@ extends base.pug
 include mixins/video
 
 block content 
+    div.profile
+        span.profile-title #{user.name}
+        img.avatar-img(src="/"+loggedInUser.user.avatarUrl, width=120, height=120)
     div.video-grid 
         each video in user.videos 
             +video(video)

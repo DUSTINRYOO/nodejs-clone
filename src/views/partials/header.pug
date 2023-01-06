@@ -8,13 +8,13 @@ header
                     i.fas.fa-search 
             if loggedIn 
                 li 
+                    a(href=`/user/${loggedInUser.user._id}`) My Profile            
+                li 
                     a(href="/user/edit") Edit Profile
                 li 
                     a(href="/user/logout") Logout
-                li 
-                    a(href=`/user/${loggedInUser.user._id}`) My Profile            
                 li
-                    a(href="/video/upload") Upload Video      
+                    a(href="/video/upload").header__btn Upload Video      
             else
                 li 
                     a(href="/join") Join

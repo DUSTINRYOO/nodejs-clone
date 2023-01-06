@@ -1,5 +1,6 @@
 // video mixin
-.video__mixin {
+.video__mixin,
+.video__watch {
   .video-mixin__thumb {
     height: 140px;
     width: 100%;
@@ -8,14 +9,51 @@
   }
   .video-mixin__data {
     padding: 0px 15px;
+    color: white;
     .video-mixin__title {
-      font-size: 18px;
+      font-size: 20px;
       display: block;
-      margin-top: 10px;
+      margin-top: 15px;
     }
     .video-mixin__meta {
-      margin-top: 5px;
+      display: flex;
+      margin-top: 10px;
       font-size: 12px;
+      justify-content: space-between;
+    }
+  }
+}
+// video watch
+.video__watch {
+  .video-mixin__data {
+    .video-mixin__title {
+      font-size: 40px;
+    }
+    .video-mixin__meta {
+      font-size: 20px;
+      small {
+        font-size: 14px;
+        opacity: 0.6;
+      }
+      a {
+        color: $yellow;
+        border-bottom: 1px solid $yellow;
+      }
+    }
+    .video-mixin__createdAt {
+      padding-top: 10px;
+      padding-bottom: 25px;
+      font-size: 14px;
+      border-bottom: 1px solid white;
+    }
+  }
+
+  .video-function__box {
+    padding-top: 20px;
+    .video-function {
+      color: $yellow;
+      border-bottom: 1px solid $yellow;
+      font-size: 20px;
     }
   }
 }
