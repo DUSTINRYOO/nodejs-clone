@@ -3,18 +3,28 @@ extends base.pug
 block content 
     div.video__watch
         video.video__watch__content(src="/"+video.fileUrl, controls)
-        div.video-mixin__data
-            span.video-mixin__title=video.title
-            div.video-mixin__meta
-                div
-                    small Uploaded by 
-                    a(href=`/user/${video.owner._id}`) #{video.owner.name}
-                span #{video.meta.views} 회
-            div.video-mixin__createdAt
-                small=video.createdAt
-            if loggedInUser.user    
-                if String(video.owner._id) == String(loggedInUser.user._id)
-                    div.video-function__box
-                        a.video-function(href=`${video.id}/edit`) Edit Video &rarr; 
-                    div.video-function__box
-                        a.video-function(href=`${video.id}/delete`) Delete Video &rarr; 
+        div 
+            button#play Play 
+            button#mute Mute
+            span#time 00:00/00:00
+            input(type="range", value="0.5", min="0" ,step="0.1" ,max="1" )#volume 
+
+
+        //-
+            div.video-mixin__data
+                span.video-mixin__title=video.title
+                div.video-mixin__meta
+                    div
+                        small Uploaded by 
+                        a(href=`/user/${video.owner._id}`) #{video.owner.name}
+                    span #{video.meta.views} 회
+                div.video-mixin__createdAt
+                    small=video.createdAt
+                if loggedInUser.user    
+                    if String(video.owner._id) == String(loggedInUser.user._id)
+                        div.video-function__box
+                            a.video-function(href=`${video.id}/edit`) Edit Video &rarr; 
+                        div.video-function__box
+                            a.video-function(href=`${video.id}/delete`) Delete Video &rarr; 
+block scripts 
+    script(src="/assets/js/videoPlayer.js")
