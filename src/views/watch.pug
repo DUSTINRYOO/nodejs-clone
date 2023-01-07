@@ -1,11 +1,13 @@
 extends base.pug
 
 block content 
-    div.video__watch
-        video.video__watch__content(src="/"+video.fileUrl, controls)
-        div 
-            button#play Play 
-            button#mute Mute
+    div.video__watch#videoContainer
+        video.video__watch__content(src="/"+video.fileUrl)
+        div#videoControls 
+            button#play
+                i.fa-solid.fa-play
+            button#mute
+                i.fa-solid.fa-volume-off
             input(type="range", value="0.5", min="0" ,step="0.1" ,max="1" )#volume 
             div     
                 span#currentTime 00:00
@@ -13,6 +15,10 @@ block content
                 span#totalTime 00:00
             div     
                 input(type="range", value="0", min="0" ,step="1" )#timeline 
+            div
+                button#fullScreen 
+                    i.fa-solid.fa-expand
+
 
 
 

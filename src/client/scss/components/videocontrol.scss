@@ -1,0 +1,65 @@
+#videoContainer {
+  position: relative;
+  padding: 0px;
+}
+
+#videoControls {
+  box-sizing: border-box;
+  position: absolute;
+  bottom: 10px;
+  left: 1%;
+  background-color: $yellow;
+  padding: 4px 18px;
+  border-radius: 8px;
+  width: 98%;
+  opacity: 0.9;
+  display: grid;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  grid-template-columns: 28px 28px 98px 106px 1fr 28px;
+
+  input[type="range"] {
+    height: 100%;
+    appearance: none;
+    margin: 10px 0;
+    width: 100%;
+    background-color: $yellow;
+  }
+  input[type="range"]:focus {
+    outline: none;
+  }
+  input[type="range"]::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 10px;
+    background: #ffffff;
+    border-radius: 5px;
+  }
+  input[type="range"]::-webkit-slider-thumb {
+    height: 16px;
+    width: 16px;
+    border-radius: 8px;
+    background: #000000;
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -3px;
+  }
+  span {
+    color: black;
+    font-size: 16px;
+    font-weight: 400;
+  }
+  button {
+    all: unset;
+  }
+  i {
+    font-size: 24px;
+    padding: 3px;
+    margin: 4px;
+    color: black;
+  }
+}
+#timeline,
+#volume {
+  width: 100%;
+}
