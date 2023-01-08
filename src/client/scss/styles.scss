@@ -37,3 +37,34 @@ main {
   width: 100%;
   margin: 0 auto;
 }
+
+@keyframes goAway {
+  from {
+    transform: none;
+    opacity: 1;
+  }
+  to {
+    transform: translateY(-150px);
+    opacity: 0;
+  }
+}
+
+.message {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 100px;
+  margin: 0 auto;
+  max-width: 150px;
+  padding: 10px 20px;
+  border-radius: 10px;
+  text-align: center;
+  animation: goAway 0.5s ease-in-out forwards;
+  animation-delay: 1.5s;
+  &.error,
+  &.info,
+  &.success {
+    background-color: $yellow;
+    color: black;
+  }
+}
