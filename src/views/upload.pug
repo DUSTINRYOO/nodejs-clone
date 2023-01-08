@@ -1,7 +1,7 @@
 extends base.pug
 
 block content 
-    div 
+    div#upload-screen 
         video#preview
         button#startBtn Start Recording
     if errorMessage 
@@ -9,6 +9,8 @@ block content
     form(method="post", enctype="multipart/form-data")
         label.file-input-label(for="video") Video file
             input.file-input(type="file", accept="video/*", required, id="video", name="video")
+        label.file-input-label(for="thumb") Thumbnail file
+            input.file-input(type="file", accept="image/*", required, id="thumb", name="thumb")
         input(name="title", placeholder="Title", required, type="text" ,maxlength=80)
         input(name="description", placeholder="Description", required, type="text", maxlength=150)
         input(name="hashtags", placeholder="Hashtags, separated by comma.", required, type="text")

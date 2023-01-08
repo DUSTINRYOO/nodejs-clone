@@ -1,0 +1,26 @@
+#upload-screen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+#preview {
+  height: 500px;
+}
+#startBtn {
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+  text-align: center;
+  font-weight: 600;
+  font-size: 16px;
+  padding: 12px 12px;
+  margin: 8px;
+  border-radius: 12px;
+  border: 1px solid rgb(255, 0, 0);
+  display: block;
+  width: 160px;
+}
+
+#startBtn:disabled {
+  background-color: rgb(65, 65, 65);
+  color: white;
+}
