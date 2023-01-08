@@ -1,7 +1,7 @@
 extends base.pug
 
 block content 
-    div.video__watch#videoContainer
+    div.video__watch#videoContainer(data-videoId=video.id)
         video.video__watch__content(src="/"+video.fileUrl)
         div#videoControls 
             button#play
@@ -9,7 +9,7 @@ block content
             button#mute
                 i.fa-solid.fa-volume-off
             input(type="range", value="0.5", min="0" ,step="0.1" ,max="1" )#volume 
-            div     
+            div#video__watch__time     
                 span#currentTime 00:00
                 span  / 
                 span#totalTime 00:00
@@ -18,25 +18,21 @@ block content
             div
                 button#fullScreen 
                     i.fa-solid.fa-expand
-
-
-
-
-        //-
-            div.video-mixin__data
-                span.video-mixin__title=video.title
-                div.video-mixin__meta
-                    div
-                        small Uploaded by 
-                        a(href=`/user/${video.owner._id}`) #{video.owner.name}
-                    span #{video.meta.views} 회
-                div.video-mixin__createdAt
-                    small=video.createdAt
-                if loggedInUser.user    
-                    if String(video.owner._id) == String(loggedInUser.user._id)
-                        div.video-function__box
-                            a.video-function(href=`${video.id}/edit`) Edit Video &rarr; 
-                        div.video-function__box
-                            a.video-function(href=`${video.id}/delete`) Delete Video &rarr; 
+    div.video__watch
+        div.video-mixin__data
+            span.video-mixin__title=video.title
+            div.video-mixin__meta
+                div
+                    small Uploaded by 
+                    a(href=`/user/${video.owner._id}`) #{video.owner.name}
+                span #{video.meta.views} 회
+            div.video-mixin__createdAt
+                small=video.createdAt
+            if loggedInUser.user    
+                if String(video.owner._id) == String(loggedInUser.user._id)
+                    div.video-function__box
+                        a.video-function(href=`${video.id}/edit`) Edit Video &rarr; 
+                    div.video-function__box
+                        a.video-function(href=`${video.id}/delete`) Delete Video &rarr; 
 block scripts 
     script(src="/assets/js/videoPlayer.js")

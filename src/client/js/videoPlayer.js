@@ -114,6 +114,11 @@ const handleVideoClick = () => {
     : "fa-solid fa-pause";
 };
 
+const handleEnded = () => {
+  const { videoid } = videoContainer.dataset;
+  fetch(`/api/video/${videoid}/view`, { method: "post" });
+};
+
 playBtn.addEventListener("click", handlePlay);
 muteBtn.addEventListener("click", handleMute);
 volumeRange.addEventListener("input", handleVolumeChange);
@@ -122,5 +127,6 @@ video.addEventListener("timeupdate", handleTimeUpdate);
 video.addEventListener("mousemove", handleMouseMove);
 video.addEventListener("mouseleave", handleMouseLeave);
 video.addEventListener("click", handleVideoClick);
+video.addEventListener("ended", handleEnded);
 timeline.addEventListener("input", handleTimelineChange);
 fullScreenBtn.addEventListener("click", handleFullScreen);
