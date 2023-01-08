@@ -1,6 +1,7 @@
 import { render } from "pug";
 import Video from "../models/video";
 import User from "../models/user";
+import Comment from "../models/comment";
 
 export const home = async (req, res) => {
   const videos = await Video.find({})
@@ -11,7 +12,7 @@ export const home = async (req, res) => {
 
 export const watch = async (req, res) => {
   const { id } = req.params;
-  const video = await Video.findById(id).populate("owner");
+  const video = await Video.findById(id).populate("owner").populate("comments");
   if (video == null) {
     return res.status(404).render("404", { pageTitle: "Video not found" });
   }
@@ -128,4 +129,28 @@ export const countView = async (req, res) => {
   video.meta.views = video.meta.views + 1;
   await video.save();
   return res.sendStatus(200);
+};
+
+export const createComment = async (req, res) => {
+  const {
+    session: { user },
+    body: { text },
+    params: { id },
+  } = req;
+  const video = await Video.findById(id);
+
+  if (!video) {
+    return res.sendStatus(404);
+  }
+
+  const newComment = await Comment.create({
+    text,
+    owner: user._id,
+    videos: video.id,
+  });
+  video.comments.push(newComment._id);
+  video.save();
+  console.log(video);
+
+  return res.sendStatus(201);
 };
