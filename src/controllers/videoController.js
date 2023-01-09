@@ -1,7 +1,7 @@
 import { render } from "pug";
-import Video from "../models/video";
-import User from "../models/user";
-import Comment from "../models/comment";
+import Video from "../models/Video";
+import User from "../models/User";
+import Comment from "../models/Comment";
 
 export const home = async (req, res) => {
   const videos = await Video.find({})

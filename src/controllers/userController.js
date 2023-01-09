@@ -1,5 +1,5 @@
-import User from "../models/user";
-import Video from "../models/video";
+import User from "../models/User";
+import Video from "../models/Video";
 import fetch from "cross-fetch";
 import bcrypt from "bcrypt";
 
