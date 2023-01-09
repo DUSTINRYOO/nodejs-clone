@@ -7,8 +7,12 @@
     "url": "git+https://github.com/DUSTINRYOO/nodejs-clone.git"
   },
   "scripts": {
+    "build": "npm run build:server && npm run build:assets",
+    "start": "node build/init.js",
+    "build:server": "babel src -d build",
+    "build:assets": "webpack --mode=production",
     "dev_server": "nodemon",
-    "dev_assets": "webpack"
+    "dev_assets": "webpack --mode=development -w"
   },
   "author": "Dustin",
   "license": "MIT",
@@ -33,7 +37,8 @@
     "pug": "^3.0.2"
   },
   "devDependencies": {
-    "@babel/core": "^7.20.7",
+    "@babel/cli": "^7.20.7",
+    "@babel/core": "^7.20.12",
     "@babel/node": "^7.20.7",
     "@babel/preset-env": "^7.20.2",
     "babel-loader": "^9.1.0",
