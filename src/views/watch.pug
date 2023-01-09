@@ -2,7 +2,7 @@ extends base.pug
 
 block content 
     div.video__watch#videoContainer(data-videoId=video.id)
-        video.video__watch__content(src=video.fileUrl)
+        video.video__watch__content(src=video.fileUrl,crossorigin)
         div#videoControls 
             button#play
                 i.fa-solid.fa-play
