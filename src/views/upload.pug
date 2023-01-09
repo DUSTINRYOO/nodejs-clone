@@ -11,9 +11,9 @@ block content
             input.file-input(type="file", accept="video/*", required, id="video", name="video")
         label.file-input-label(for="thumb") Thumbnail file
             input.file-input(type="file", accept="image/*", required, id="thumb", name="thumb")
-        input(name="title", placeholder="Title", required, type="text" ,maxlength=80)
-        input(name="description", placeholder="Description", required, type="text", maxlength=150)
-        input(name="hashtags", placeholder="Hashtags, separated by comma.", required, type="text")
+        input(name="title", placeholder="Title", required, type="text" ,maxlength=80, value="title")
+        input(name="description", placeholder="Description", required, type="text", maxlength=150, value="description")
+        input(name="hashtags", placeholder="Hashtags, separated by comma.", required, type="text",value="hashtag")
         input(type="submit", value="Upload")
 
 block scripts 
