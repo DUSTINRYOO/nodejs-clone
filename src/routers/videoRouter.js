@@ -8,6 +8,7 @@ import {
   getUpload,
   postUpload,
   deleteVideo,
+  deleteComment,
 } from "../controllers/videoController";
 import {
   protectorMiddleware,
@@ -38,5 +39,9 @@ videoRouter
     ]),
     postUpload
   );
+videoRouter
+  .route("/:id([0-9a-f]{24})/comment/delete")
+  .all(protectorMiddleware)
+  .get(deleteComment);
 
 export default videoRouter;

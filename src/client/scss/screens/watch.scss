@@ -47,6 +47,33 @@
     padding: 8px 18px;
     border-radius: 8px;
   }
+  div {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+  span {
+    margin-bottom: 20px;
+  }
+  span:first-child {
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 8px;
+  }
+  .createdAtComment {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    font-size: 12px;
+    opacity: 0.8;
+  }
+  .deleteComment {
+    position: absolute;
+    right: 0;
+    font-size: 18px;
+    top: 0;
+    font-weight: 800;
+  }
 }
 
 // div.video__comments

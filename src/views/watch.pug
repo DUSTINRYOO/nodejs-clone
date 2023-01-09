@@ -42,7 +42,14 @@ block content
     div.video__comments__list
         ul
             each comment in video.comments.reverse()
-                li.comment=`${comment.text}`
+                li.comment
+                    div
+                        span=`${comment.owner.username} :`
+                        span=`${comment.text}`
+                        small.createdAtComment=`${comment.createdAt}`
+                        if loggedIn
+                            if String(loggedInUser.user._id) == String(comment.owner._id)
+                                a.deleteComment(href=`${comment._id}/comment/delete`) X 
                     
 block scripts 
     script(src="/assets/js/videoPlayer.js")
