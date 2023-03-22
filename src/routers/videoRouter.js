@@ -3,18 +3,12 @@ import {
   getEdit,
   postEdit,
   watch,
-  remove,
-  upload,
   getUpload,
   postUpload,
   deleteVideo,
   deleteComment,
 } from "../controllers/videoController";
-import {
-  protectorMiddleware,
-  uploadMiddleware,
-  videoUploadMiddleware,
-} from "../middlewares";
+import { protectorMiddleware, videoUploadMiddleware } from "../middlewares";
 
 const videoRouter = express.Router();
 
